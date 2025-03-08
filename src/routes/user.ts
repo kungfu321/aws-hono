@@ -1,4 +1,11 @@
 import { Hono } from 'hono';
+import { z } from 'zod'
+import { zValidator } from '@hono/zod-validator'
+
+const schema = z.object({
+  name: z.string(),
+  age: z.number(),
+})
 
 const userRoute = new Hono();
 
@@ -12,7 +19,7 @@ userRoute.get('/', (c) => {
   })
 })
 
-userRoute.post('/', (c) => {
+userRoute.post('/', zValidator('json', schema), (c) => {
   console.log('userRoute');
 
   return c.json({

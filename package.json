@@ -13,6 +13,7 @@
     "npm-run-all2": "^6.2.0"
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.4.3",
     "hono": "^4.7.4",
     "sst": "3.9.31"
   }
